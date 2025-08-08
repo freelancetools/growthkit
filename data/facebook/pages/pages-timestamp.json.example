@@ -1,0 +1,63 @@
+{
+    "metadata": {
+      "created_at": "2025-07-28T17:04:54.200889",
+      "total_pages": 3,
+      "successful_scrapes": 3,
+      "failed_scrapes": 0,
+      "extraction_method": "playwright_scraping",
+      "note": "Data extracted by scraping Facebook pages with Playwright"
+    },
+    "pages": {
+      "PAGE_ID_001": {
+        "page_id": "PAGE_ID_001",
+        "url_original": "https://www.facebook.com/PAGE_ID_001",
+        "scrape_timestamp": "2025-07-28T17:04:45.894475",
+        "scrape_success": true,
+        "url_final": "https://www.facebook.com/example_page_1/",
+        "username": "example_page_1",
+        "page_title": "Example Page 1 | Facebook",
+        "name": "Example Page 1",
+        "category": "Page · Health & Wellness",
+        "follower_count": 12345,
+        "verified": true,
+        "accessible": true,
+        "about_page_scraped": false,
+        "scrape_duration_seconds": 4.14,
+        "post_count_in_data": 100
+      },
+      "PAGE_ID_002": {
+        "page_id": "PAGE_ID_002",
+        "url_original": "https://www.facebook.com/PAGE_ID_002",
+        "scrape_timestamp": "2025-07-28T17:04:45.945164",
+        "scrape_success": true,
+        "url_final": "https://www.facebook.com/example_page_2/",
+        "username": "example_page_2",
+        "page_title": "Example Page 2 | Facebook",
+        "name": "Example Page 2",
+        "category": "Page · Fitness & Lifestyle",
+        "follower_count": 6789,
+        "verified": false,
+        "accessible": true,
+        "about_page_scraped": false,
+        "scrape_duration_seconds": 4.17,
+        "post_count_in_data": 50
+      },
+      "PAGE_ID_003": {
+        "page_id": "PAGE_ID_003",
+        "url_original": "https://www.facebook.com/PAGE_ID_003",
+        "scrape_timestamp": "2025-07-28T17:04:45.934097",
+        "scrape_success": true,
+        "url_final": "https://www.facebook.com/example_page_3/",
+        "username": "example_page_3",
+        "page_title": "Example Page 3 | Facebook",
+        "name": "Example Page 3",
+        "category": "Page · E-commerce Website",
+        "follower_count": 1000,
+        "verified": false,
+        "accessible": true,
+        "about_page_scraped": false,
+        "scrape_duration_seconds": 4.31,
+        "post_count_in_data": 25
+      }
+    }
+}

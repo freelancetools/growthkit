@@ -1,0 +1,60 @@
+{
+  "people": [
+    {
+      "name": "John Doe",
+      "username": "johndoe",
+      "user_id": "U012AB3CDE",
+      "role": "Marketing Lead",
+      "company": "Acme Inc.",
+      "email": "john.doe@acme.com",
+      "notes": "Responsible for managing marketing campaigns and analyzing performance metrics."
+    },
+    {
+      "name": "Jane Smith",
+      "username": "janesmith",
+      "user_id": "U012AB3CDF",
+      "role": "Sales Manager",
+      "company": "Acme Inc.",
+      "email": "jane.smith@acme.com",
+      "notes": "Leads the sales team and develops strategies to increase revenue."
+    },
+    {
+      "name": "Peter Jones",
+      "username": "peterjones",
+      "user_id": "U012AB3CDG",
+      "role": "Software Engineer",
+      "company": "Innovate Corp.",
+      "email": "peter.jones@innovate.com",
+      "notes": "Develops and maintains the company's software products."
+    },
+    {
+      "name": "Mary Williams",
+      "username": "marywilliams",
+      "user_id": "U012AB3CDH",
+      "role": "HR Manager",
+      "company": "Innovate Corp.",
+      "email": "mary.williams@innovate.com",
+      "notes": "Manages the hiring process and employee relations."
+    }
+  ],
+  "companies": [
+    {
+      "name": "Acme Inc.",
+      "type": "Client Company",
+      "industry": "Technology",
+      "description": "A leading provider of innovative technology solutions."
+    },
+    {
+      "name": "Innovate Corp.",
+      "type": "Partner Company",
+      "industry": "Software",
+      "description": "A software company that partners with Acme Inc. on various projects."
+    }
+  ],
+  "last_updated": "2025-07-24",
+  "source_files": [
+    "example_source1.md",
+    "example_source2.md"
+  ]
+}
+

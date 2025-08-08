@@ -1,0 +1,21 @@
+breakdown_platform_northbeam,campaign_name,adset_name,ad_name,spend,attributed_rev
+Google Ads,US_PMax_Generic_AllProducts,US_PMax_Generic_AllProducts,US_PMax_Generic_AllProducts,11000.50,22000.75
+Awin,AWIN / 123456 (custom spend input),AWIN / 123456 (custom spend input),AWIN / 123456 (custom spend input),3500.00,0.0
+Google Ads,US_PMax_Generic_Consumables,US_PMax_Generic_Consumables,US_PMax_Generic_Consumables,2400.00,5000.00
+Google Ads,US_Search_Generic_Alone_Exact,BR_Generic_Alone_Exact,876543210987 (RESPONSIVE_SEARCH_AD),2100.00,12000.00
+Awin,AWIN / 234567 (custom spend input),AWIN / 234567 (custom spend input),AWIN / 234567 (custom spend input),900.00,0.0
+Awin,AWIN / 345678 (custom spend input),AWIN / 345678 (custom spend input),AWIN / 345678 (custom spend input),800.00,0.0
+Facebook Ads,Generic | Category | Creative Test | 12345,ADSET001 - ADV+ | 25+ | Fictional Person | All Exclusions | 010125,AD_FictionalPersonPost_v1_PDP_010125,700.00,400.00
+Awin,AWIN / 456789 (custom spend input),AWIN / 456789 (custom spend input),AWIN / 456789 (custom spend input),650.00,0.0
+Facebook Ads,US | ASC DYN | 010125 | CVN | Purchases | Volume | DABA Campaign,US | ASC DYN | 010125 | CVN | Purchases | Volume | DABA Ad set,MULT | DYN | | MULTI PRODUCT | | 0101 | AOV $200+ | DPA,650.00,0.0
+Awin,AWIN / 567890 (custom spend input),AWIN / 567890 (custom spend input),AWIN / 567890 (custom spend input),600.00,0.0
+Awin,AWIN / 678901 (custom spend input),AWIN / 678901 (custom spend input),AWIN / 678901 (custom spend input),580.00,0.0
+ShopMyShelf,ShopMy / Influencer A (custom spend input),ShopMy / Influencer A (custom spend input),ShopMy / Influencer A (custom spend input),550.00,0.0
+Awin,AWIN / 789012 (custom spend input),AWIN / 789012 (custom spend input),AWIN / 789012 (custom spend input),500.00,0.0
+Facebook Ads,US | ASC DYN | 010225 | CVN | Purchases | Value DABA Campaign,US | ASC DYN | 010225 | CVN | Purchases | Value DABA Ad set,MULT | DYN | | MULTI PRODUCT | | 0102 | AOV $200+ | DPA,480.00,400.00
+Awin,AWIN / 890123 (custom spend input),AWIN / 890123 (custom spend input),AWIN / 890123 (custom spend input),470.00,0.0
+Awin,AWIN / 901234 (custom spend input),AWIN / 901234 (custom spend input),AWIN / 901234 (custom spend input),460.00,0.0
+ShopMyShelf,ShopMy / Influencer B (custom spend input),ShopMy / Influencer B (custom spend input),ShopMy / Influencer B (custom spend input),270.00,0.0
+ShopMyShelf,ShopMy / Influencer C (custom spend input),ShopMy / Influencer C (custom spend input),ShopMy / Influencer C (custom spend input),260.00,0.0
+Awin,AWIN / 112233 (custom spend input),AWIN / 112233 (custom spend input),AWIN / 112233 (custom spend input),260.00,0.0
+

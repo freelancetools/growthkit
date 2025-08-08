@@ -1,0 +1,19 @@
+# #general
+
+**Channel ID:** C12345678
+**Exported:** 2025-07-24 12:00:00
+**Message Count:** 12
+
+---
+
+- **2023-01-01 10:00** *User A* joined the channel
+- **2023-01-01 10:01** *User B* joined the channel
+- **2023-01-01 10:05** *User C* joined the channel
+- **2023-01-01 10:10** *User A*: Hey everyone, welcome to the channel!
+- **2023-01-01 10:11** *User A*: Make sure to check out the pinned message for our community guidelines.
+- **2023-01-01 10:12** *User A*: @User A uploaded a file: [welcome-image.png](https://example.com/files/T12345678/F12345678/welcome-image.png)\n\n📎 **welcome-image.png** (png, 30.9KB) - [Download](https://example.com/files-pri/T12345678-F12345678/download/welcome-image.png)
+- **2023-01-02 11:00** *User B*: Any updates on the project?
+- **2023-01-02 11:05** *User C*: I'll have some updates to share this afternoon.
+- **2023-01-02 11:06** *User C*: In the meantime, can you think about the next steps on your end?
+- **2023-01-02 11:07** *User B*: Sounds good, looking forward to it.
+- **2023-01-02 11:10** *User C*: I'm thinking of proposing a new feature.

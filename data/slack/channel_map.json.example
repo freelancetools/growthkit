@@ -1,0 +1,17 @@
+{
+  "C01ABC123": "general",
+  "C02DEF456": "marketing-campaigns", 
+  "C03GHI789": "product-launches",
+  "C04JKL012": "customer-feedback",
+  "C05MNO345": "performance-data",
+  "C06PQR678": "creative-review",
+  "C07STU901": "influencer-partnerships",
+  "C08VWX234": "brand-strategy",
+  "C09YZA567": "ecommerce-ops",
+  "C10BCD890": "analytics-insights",
+  "C11EFG123": "social-media",
+  "C12HIJ456": "content-creation",
+  "C13KLM789": "email-marketing",
+  "C14NOP012": "paid-advertising",
+  "C15QRS345": "seo-organic"
+}
