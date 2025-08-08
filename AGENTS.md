@@ -1,0 +1,4 @@
+- Please give push back if you think we should be doing something differently. 
+- If you think we should be doing something differently, please let me know. 
+- Ask questions if you need clarification.
+- BEFORE YOU GENERATE CODE, analyze the README in your working directory.
