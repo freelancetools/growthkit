@@ -1,0 +1,9 @@
+{
+  "cookies": {
+    "example_cookie": "VALUE"
+  },
+  "token": "xoxc-your-slack-token",
+  "user_id": "UXXXXXXXX",
+  "team_id": "TXXXXXXXX",
+  "last_updated": 0
+}

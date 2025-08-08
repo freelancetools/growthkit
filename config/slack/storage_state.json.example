@@ -1,0 +1,41 @@
+{
+    "cookies": [
+        {
+            "name": "dummy_cookie_1",
+            "value": "dummy_value_1",
+            "domain": ".example.com",
+            "path": "/",
+            "expires": 1800000000.000000,
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "None"
+        },
+        {
+            "name": "dummy_cookie_2",
+            "value": "dummy_value_2",
+            "domain": ".example.com",
+            "path": "/",
+            "expires": -1,
+            "httpOnly": false,
+            "secure": true,
+            "sameSite": "Lax"
+        }
+    ],
+    "origins": [
+        {
+            "origin": "https://app.example.com",
+            "localStorage": [
+                {
+                    "name": "dummy_storage_key_1",
+                    "value": "dummy_storage_value_1"
+                },
+                {
+                    "name": "dummy_storage_key_2",
+                    "value": "{\"key\":\"dummy_value\"}"
+                }
+            ]
+        }
+    ]
+}
+
+

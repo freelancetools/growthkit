@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "created_at": "YYYY-MM-DDTHH:MM:SS.ssssss+00:00",
+    "run_id": "YYYY-MM-DD-HHMMSS"
+  },
+  "user_config": {
+    "user_id": "00000000000000000",
+    "user_name": "John Doe",
+    "short_lived_token": "SHORT_LIVED_TOKEN_EXAMPLE",
+    "long_lived_token": {
+      "access_token": "LONG_LIVED_TOKEN_EXAMPLE",
+      "expires_at": 1800000000,
+      "expires_in": 5184000,
+      "token_type": "bearer"
+    }
+  },
+  "page_configs": {
+    "0000000000000000": {
+      "page_id": "0000000000000000",
+      "page_name": "Example Page",
+      "page_access_token": {
+        "access_token": "PAGE_ACCESS_TOKEN_EXAMPLE",
+        "expires_at": null,
+        "expires_in": null,
+        "token_type": ""
+      },
+      "category": "Unknown"
+    }
+  }
+}
+

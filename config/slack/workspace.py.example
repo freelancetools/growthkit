@@ -1,0 +1,35 @@
+"""
+Slack workspace configuration for GrowthKit Slack utilities.
+Replace the placeholder values with your actual Slack workspace URL and team ID.
+Strong typing is provided via a frozen dataclass for IDE support.
+"""
+
+from dataclasses import dataclass
+
+# ------------------------------------------------------- #
+# Do not edit the following code:                         #
+# ------------------------------------------------------- #
+
+@dataclass(frozen=True)
+class WorkspaceConfig:
+    """Identifiers required to access a Slack workspace."""
+    url: str
+    team_id: str
+
+def validate_workspace() -> bool:
+    """Raise if placeholder values are still present."""
+    if CONFIG.url == "https://YOUR_WORKSPACE.slack.com" or CONFIG.team_id == "TXXXXXXXX":
+        raise RuntimeError(
+            "config/slack/workspace.py still contains placeholder values – "
+            "please update them before running Slack utilities."
+        )
+    return True
+
+# ------------------------------------------------------- #
+# Edit the two values below:                              #
+# ------------------------------------------------------- #
+
+CONFIG = WorkspaceConfig(
+    url="https://YOUR_WORKSPACE.slack.com",
+    team_id="TXXXXXXXX",
+)

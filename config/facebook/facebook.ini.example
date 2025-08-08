@@ -1,0 +1,24 @@
+# Facebook API configuration (example)
+# Copy to config/facebook/facebook.ini and fill in real values.
+
+[app]
+app_id = 123456789012345
+app_name = MyFacebookApp
+app_secret = YOUR_APP_SECRET_HERE
+
+[api]
+api_version = vXX.X
+api_base_url = https://graph.facebook.com/
+
+[user]
+user_psid = YOUR_USER_PSID
+user_name = Your Name
+
+[token]
+# For development you can put a short-lived token here; production scripts
+# will exchange it for a long-lived token automatically.
+access_token = YOUR_USER_ACCESS_TOKEN
+
+[page]
+page_id = YOUR_PAGE_ID
+page_name = Your Page Name
