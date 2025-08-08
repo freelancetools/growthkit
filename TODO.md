@@ -2,7 +2,7 @@
 
 ## Initializing Repo
 
-- [ ] Answer questions in INIT.md
+- [ ] Answer questions in `docs\notes\initializing-questions.md`
 
 ## GK Slack
 
