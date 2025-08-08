@@ -1,0 +1,29 @@
+[project]
+name = "growthkit"
+version = "0.0.1"
+description = "GrowthKit - report generation toolkit for growth teams"
+authors = [{name = "GrowthKit"}]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas==2.2.3",
+    "numpy==2.2.6",
+    "google-api-python-client==2.176.0",
+    "google-auth-httplib2==0.2.0",
+    "google-auth-oauthlib==1.2.2",
+    "markitdown==0.1.2",
+    "playwright==1.54.0",
+    "requests==2.32.4",
+    "python-dateutil==2.9.0.post0",
+    "pylint==3.3.7",
+    "pytest==8.4.1"
+]
+
+# CLI entry points - these will be available as commands after installation
+[project.scripts]
+gk-slack = "growthkit.connectors.slack.slack_fetcher:run_main"
+gk-email = "growthkit.connectors.mail.gmail_sync:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
