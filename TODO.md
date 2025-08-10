@@ -4,6 +4,10 @@
 
 - [ ] Answer questions in `docs\notes\initializing-questions.md`
 
+## Organization
+
+- [ ] Move the .py files in `./scripts` to `./src/growthkit/entrypoints`
+
 ## GK Slack
 
 - [ ] Decrease the gap between `main login` and `main conversation_discovery`
