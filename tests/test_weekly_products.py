@@ -98,5 +98,5 @@ def test_assign_products_build_summary_and_markdown_prev_delta():
 
     # Include a totals row and ensure it aligns with summary aggregates
     tot = totals_row(summary, label="**All Products**")
-    assert float(tot["spend"]) == float(summary["spend"].sum())
-    assert float(tot["attributed_rev"]) == float(summary["attributed_rev"].sum())
+    assert float(tot["spend"].iloc[0]) == float(summary["spend"].sum())
+    assert float(tot["attributed_rev"].iloc[0]) == float(summary["attributed_rev"].sum())
