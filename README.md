@@ -5,7 +5,7 @@ Pragmatic setup and usage for Windows and macOS/Linux. Commands below always inv
 ### 0) Clone the repository
 
 ```bash
-git clone https://github.com/chrischcodes/growthkit
+git clone https://github.com/freelancetools/growthkit
 cd growthkit
 ```
 
