@@ -21,8 +21,8 @@ dependencies = [
 
 # CLI entry points - these will be available as commands after installation
 [project.scripts]
-gk-slack = "growthkit.connectors.slack.slack_fetcher:run_main"
-gk-email = "growthkit.connectors.mail.gmail_sync:main"
+gk-slack = "growthkit.entrypoints.slack_export:main"
+gk-email = "growthkit.entrypoints.email_export:main"
 
 [build-system]
 requires = ["setuptools>=61.0"]
