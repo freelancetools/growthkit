@@ -33,7 +33,7 @@ from typing import Dict, Any, List, Tuple, Optional
 
 from growthkit.utils.style import ansi
 from growthkit.utils.logs import report
-from growthkit.facebook.engine import TokenManager
+from growthkit.connectors.facebook.engine import TokenManager
 
 logger = report.settings(__file__)
 
