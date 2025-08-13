@@ -1,18 +1,20 @@
-"""generate default Slack workspace config if missing"""
+"""Generate default Slack workspace config if missing"""
 from pathlib import Path
+from growthkit.utils.style import ansi
 
 CONFIG_DIR = Path("config/slack")
-WORKSPACE_FILE = Path(CONFIG_DIR, "workspace.py")
-TEMPLATE_PATH = Path(__file__).with_name("_workspace_template.py")
+WORKSPACE_FILE = Path(CONFIG_DIR, "workspace.json")
 
 
-def _load_template() -> str:
-    """Return the text of the workspace template shipped with the package."""
-    if not TEMPLATE_PATH.exists():
-        raise FileNotFoundError(
-            f"Template file missing: {TEMPLATE_PATH}. Did you delete it?"
-        )
-    return TEMPLATE_PATH.read_text(encoding="utf-8")
+def _template_json() -> str:
+    """Return default JSON content for the workspace config."""
+    return (
+        '{\n'
+        '  "note": "Enter your workspace URL and team ID here.",\n'
+        '  "url": "https://YOUR_WORKSPACE.slack.com",\n'
+        '  "team_id": "TXXXXXXXX"\n'
+        '}\n'
+    )
 
 
 def ensure_workspace_config() -> None:
@@ -23,11 +25,11 @@ def ensure_workspace_config() -> None:
     (CONFIG_DIR / "__init__.py").write_text("", encoding="utf-8")
 
     if WORKSPACE_FILE.exists():
-        print(f"✅ Config file already exists at {WORKSPACE_FILE}")
+        print(f"✅ Config file already exists: {ansi.grey}{WORKSPACE_FILE}{ansi.reset}")
         return
 
-    WORKSPACE_FILE.write_text(_load_template(), encoding="utf-8")
-    print(f"🎉 Created default workspace config at {WORKSPACE_FILE}")
+    WORKSPACE_FILE.write_text(_template_json(), encoding="utf-8")
+    print(f"🎉 Created default workspace config at {ansi.green}{WORKSPACE_FILE}{ansi.reset}")
     print(
         "⚠️  Please edit the file to include your actual workspace URL and team ID "
         "before running Slack extract scripts."

@@ -1,0 +1,5 @@
+{
+  "note": "Enter your workspace URL and team ID here.",
+  "url": "https://YOUR_WORKSPACE.slack.com",
+  "team_id": "TXXXXXXXX"
+}

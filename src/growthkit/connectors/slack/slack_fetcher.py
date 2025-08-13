@@ -23,6 +23,7 @@ import requests
 
 from growthkit.utils.style import ansi
 from growthkit.utils.logs import report
+from growthkit.connectors.slack._init_config import ensure_workspace_config
 from growthkit.connectors.slack._playwright_setup import ensure_chromium_installed
 
 # Initialize logging
@@ -52,25 +53,41 @@ class WorkspaceSettings:
 
 
 def load_workspace_settings() -> WorkspaceSettings:
-    """Create/validate workspace config and return settings object.
+    """Ensure, load, and validate the Slack workspace config from JSON.
 
-    This mirrors the safety in `scripts/slack_export.py` by generating a
-    default `config/slack/workspace.py` if missing, then importing and
-    validating it before use.
+    - Ensures a default `config/slack/workspace.json` exists (with placeholders)
+    - Loads the file as JSON
+    - Validates presence and non-placeholder values for `url` and `team_id`
+    - Returns a typed `WorkspaceSettings` instance
     """
-    from growthkit.connectors.slack._init_config import ensure_workspace_config
 
-    # Create default config file if missing
     ensure_workspace_config()
+    workspace_path = Path("config/slack/workspace.json")
+    try:
+        cfg: Dict[str, Any] = json.loads(workspace_path.read_text(encoding="utf-8"))
+    except FileNotFoundError as exc:
+        raise RuntimeError(
+            "Workspace config is missing. A default was expected but not found: "
+            f"{workspace_path}"
+        ) from exc
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(
+            f"Workspace config JSON is invalid: {workspace_path}: {exc}"
+        ) from exc
 
-    # Import after ensuring the file exists
-    from config.slack.workspace import validate_workspace, CONFIG
+    url = (cfg.get("url") or "").strip()
+    team_id = (cfg.get("team_id") or "").strip()
 
-    # Validate values are not placeholders
-    validate_workspace()
+    if not url or not team_id:
+        raise RuntimeError("Workspace config must include non-empty `url` and `team_id`.")
 
-    # Return an immutable settings object used throughout this module
-    return WorkspaceSettings(url=CONFIG.url, team_id=CONFIG.team_id)
+    if url == "https://YOUR_WORKSPACE.slack.com" or team_id == "TXXXXXXXX":
+        raise RuntimeError(
+            "config/slack/workspace.json still contains placeholder values – "
+            "please update them before running Slack utilities."
+        )
+
+    return WorkspaceSettings(url=url, team_id=team_id)
 
 # -------------- Conversation Type Enum ---------------------------------------
 
@@ -2673,6 +2690,8 @@ async def main():
     print(f"🚀 {ansi.cyan}Playwright-based Slack Fetcher{ansi.reset}")
     # Load settings here and pass down to browser
     settings = load_workspace_settings()
+    # Ensure browser availability only after config is validated
+    ensure_chromium_installed()
     print(f"📍 Workspace: {ansi.yellow}{settings.url}{ansi.reset}")
     print(f"📝 Detailed logs: {ansi.grey}{log_file.absolute()}{ansi.reset}")
     print()
@@ -2996,16 +3015,6 @@ async def main():
 
 def run_main():
     """Run the async main function."""
-    # Ensure workspace config exists and populate runtime settings
-    try:
-        load_workspace_settings()
-    except RuntimeError as exc:
-        # Graceful, user-friendly guidance if placeholders still exist
-        print("❌ Workspace is not configured.")
-        print("   Edit `config/slack/workspace.py` with your real Slack URL and team ID.")
-        print(f"   Details: {exc}")
-        return
-    ensure_chromium_installed()
     asyncio.run(main())
 
 
