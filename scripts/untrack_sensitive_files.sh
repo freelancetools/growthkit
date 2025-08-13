@@ -18,30 +18,62 @@ if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   exit 1
 fi
 
-# List of paths (files or directories) that should no longer be tracked.
-# Feel free to extend this list as new generated/secret artefacts appear.
-paths=(
-  # 👉  Credentials & private configs
-  "config/facebook"                # app_secret + tokens
-  "config/slack"                   # cookies, workspace config
-  "src/growthkit/connectors/mail/cursor.txt" # runtime artefact
+# Targeted untracking that preserves tracked *.example templates
+# - We enumerate tracked files under these roots and drop anything that is NOT a
+#   *.example file. This avoids nuking committed templates.
+sensitive_roots=(
+  # 👉 Credentials & private configs
+  "config/facebook"       # facebook.ini + tokens/*.json (real)
+  "config/slack"          # workspace.json, playwright creds, storage state (real)
+  "config/mail"           # client_secret_*.json, token.pickle, metadata.json (real)
 
-  # 👉  Generated data exports
+  # 👉 Generated data exports
   "data/ads"
-  "data/products/unattributed"
-  "data/slack"
   "data/facebook"
-
-  # (optional) add more paths – e.g. data/facebook, data/transcripts, etc.
+  "data/slack"
+  "data/mail/exports"
+  "data/transcripts"
+  "data/products/unattributed"
+  "data/reports"          # keep *.example reports tracked
 )
 
-# Iterate over each path and untrack it from Git (leave working-tree intact)
-for p in "${paths[@]}"; do
-  if git ls-files --error-unmatch "$p" > /dev/null 2>&1; then
-    echo "➡️  Untracking $p …"
-    git rm --cached -r --quiet --ignore-unmatch "$p"
+# Explicit single-file artefacts to untrack if accidentally committed
+explicit_files=(
+  "src/growthkit/connectors/mail/cursor.txt"
+  "data/rolodex.json"
+)
+
+# First handle explicit files
+for f in "${explicit_files[@]}"; do
+  if git ls-files --error-unmatch "$f" > /dev/null 2>&1; then
+    echo "➡️  Untracking $f …"
+    git rm --cached --quiet --ignore-unmatch "$f"
   else
-    echo "ℹ️  $p was not tracked – skipping"
+    echo "ℹ️  $f was not tracked – skipping"
+  fi
+done
+
+# Then handle directories by enumerating tracked files and skipping *.example
+for root in "${sensitive_roots[@]}"; do
+  if [ -d "$root" ]; then
+    tracked=$(git ls-files -z "$root" || true)
+    if [ -n "$tracked" ]; then
+      while IFS= read -r -d '' file; do
+        case "$file" in
+          *.example)
+            # keep example templates tracked
+            ;;
+          *)
+            echo "➡️  Untracking $file …"
+            git rm --cached --quiet --ignore-unmatch "$file" || true
+            ;;
+        esac
+      done < <(printf '%s' "$tracked")
+    else
+      echo "ℹ️  No tracked files under $root – skipping"
+    fi
+  else
+    echo "ℹ️  $root does not exist – skipping"
   fi
 done
 
