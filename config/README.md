@@ -15,14 +15,38 @@ tooling connects to external services. Unlike the Python package in
 
 | Subfolder | Purpose |
 |-----------|---------|
-| `slack/`   | Playwright credentials (`playwright_creds.json`), channel → ID maps, and a helper `workspace.py` that defines your Slack team URL & IDs. |
-| `facebook/` | Facebook Marketing API tokens, app IDs, and INI-style settings (`facebook.ini`). |
-| `mail/`     | Gmail API credentials (e.g. OAuth `credentials.json`, token caches). |
+| `slack/`   | Playwright auth artifacts and workspace settings used by the Slack exporter. Files: `workspace.json`, `playwright_creds.json`, `storage_state.json`, `conversion_tracker.json`. Templates: `*.example`. |
+| `facebook/` | Facebook Marketing API configuration. Files: `facebook.ini` (created on first run), optional `ad-ids.txt`, and a generated `tokens/` folder containing timestamped token JSON files. Templates: `*.example`. |
+| `mail/`     | Gmail API OAuth credentials and token cache used by the mail exporter. Files: `client_secret_<id>.json`, `token.pickle`. Templates: `*.example`. |
 
 Each subfolder is a **namespace** for one integration.  Feel free to add more
 (e.g. `stripe/`, `amplitude/`) following the same pattern.
 
 ---
+
+## Files by Integration
+
+### Slack (`config/slack/`)
+
+- `workspace.json`: Workspace URL and team ID. Auto-created with placeholders by `growthkit.connectors.slack._init_config.ensure_workspace_config()` if missing.
+- `playwright_creds.json`: Playwright-saved cookies and Slack tokens for authenticated export.
+- `storage_state.json`: Alternative Playwright storage state file (used by the exporter if present).
+- `conversion_tracker.json`: Tracks the newest exported `ts` per channel for incremental runs.
+- Templates provided: `workspace.json.example`, `playwright_creds.json.example`, `storage_state.json.example`, `conversion_tracker.json.example`.
+
+### Facebook (`config/facebook/`)
+
+- `facebook.ini`: App credentials and settings. Created on first run by the Facebook connector and must be filled in before continuing.
+- `ad-ids.txt` (optional): Plain-text list of Ad or Page IDs used by some workflows.
+- `tokens/` (generated): Timestamped JSON files saved by the token workflow (history of token runs).
+- Templates provided: `facebook.ini.example`, `ad-ids.txt.example`, `ad-account-id.json.example`.
+
+### Mail (`config/mail/`)
+
+- `client_secret_<id>.json`: Google OAuth Desktop client JSON.
+- `token.pickle`: Cached OAuth token produced after the first auth flow.
+- Templates provided: `client_secret_id-hash.json.example`, `token.pickle.example`.
+- Other helper files may exist (e.g. `metadata.json.example`) but are not required by the sync script.
 
 ## What **should** live here
 
