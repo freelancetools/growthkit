@@ -2,6 +2,13 @@
 
 Pragmatic setup and usage for Windows and macOS/Linux. Commands below always invoke tools via the virtual environment’s executables directly (recommended): `./.venv/bin/...` on macOS/Linux and `./.venv/Scripts/...` on Windows.
 
+### 0) Clone the repository
+
+```bash
+git clone https://github.com/chrischcodes/growthkit
+cd growthkit
+```
+
 ### 1) Create a virtual environment
 
 macOS/Linux:
