@@ -1,15 +1,27 @@
 # Expand tool for multiple slack workspaces
 _Exported on 8/18/2025 at 13:53:28 CDT from Cursor (1.4.5)_
 
+## 📋 Navigation
+
+| Section | Topic | Participants |
+|---------|-------|-------------|
+| [📝 Brainstorming Request](#brainstorming-request) | Request for ideas on multi-workspace support | User |
+| [💡 Implementation Plan](#implementation-plan) | Detailed options and migration plan | Cursor |
+
+---
 ---
 
-**User**
+## Brainstorming Request
+
+### 👤 **User**
 
 What would we have to do in a codebase like this to allow users to use this tool for access to multiple slack workspaces? Right now it's just one. Let's brainstorm paths before proceeding with code.
 
 ---
 
-**Cursor**
+## Implementation Plan
+
+### 🤖 **Cursor**
 
 ### Goal
 Enable running the Slack exporter against multiple Slack workspaces, with isolated config/state/outputs and an easy way to select a workspace at runtime.
